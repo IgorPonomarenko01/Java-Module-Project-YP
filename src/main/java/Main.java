@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Введите название машины №" + (i + 1) + ":");
             inputName = scanner.next();
             System.out.println("Введите скорость машины №" + (i + 1) + ":");
-            while ((inputSpeed = scanner.nextInt()) > 250 | inputSpeed < 0) {
+            while ((inputSpeed = scanner.nextInt()) > 250 || inputSpeed < 0) {
                 System.out.println("Скорость должна быть от 0 до 250. Введите значение в указанном диапазоне");
             }
             carList[i] = new Car(inputName, inputSpeed);
