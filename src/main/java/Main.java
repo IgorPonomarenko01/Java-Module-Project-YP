@@ -13,8 +13,18 @@ public class Main {
             System.out.println("Введите название машины №" + (i + 1) + ":");
             inputName = scanner.next();
             System.out.println("Введите скорость машины №" + (i + 1) + ":");
-            while ((inputSpeed = scanner.nextInt()) > 250 || inputSpeed < 0) {
-                System.out.println("Скорость должна быть от 0 до 250. Введите значение в указанном диапазоне");
+            while (true) {
+                if (scanner.hasNextInt()) {
+                    inputSpeed = scanner.nextInt();
+                    if (inputSpeed < 250 && inputSpeed > 0) {
+                        break;
+                    } else {
+                        System.out.println("Скорость должна быть от 0 до 250. Введите значение в указанном диапазоне");
+                    }
+                } else {
+                    System.out.println("Нужно ввести цифровое значение");
+                    scanner.next();
+                }
             }
             carList[i] = new Car(inputName, inputSpeed);
             referee.defineLeader(carList[i]);
